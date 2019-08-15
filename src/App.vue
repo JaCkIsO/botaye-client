@@ -4,16 +4,19 @@
     <v-content transition="slide-x-transition">
       <router-view></router-view>
     </v-content>
+    <app-footer></app-footer>
   </v-app>
 </template>
 
 <script>
-import AppNavigation from '@/components/AppNavigation';
+import AppNavigation from "@/components/AppNavigation";
+import AppFooter from "@/components/AppFooter";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    AppNavigation
+    AppNavigation,
+    AppFooter
   }
 };
 </script>
