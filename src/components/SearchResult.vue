@@ -46,7 +46,7 @@
                     </v-carousel-item>
                   </v-carousel>
                   <v-card-text class="text-center pa-0 ma-1">
-                    <span>ITEM CODE: {{item.id}}</span>
+                    <span>{{$t('item_code')}}: {{item.id}}</span>
                   </v-card-text>
                 </v-card>
               </v-flex>

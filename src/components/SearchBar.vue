@@ -5,32 +5,32 @@
         <search-bar-select
           :items="locations"
           v-model="selectedLocation"
-          label="Location"
-          :rules="[(v) => !!v || 'You must select a location!']"
+          :label="$t('location')"
+          :rules="[(v) => !!v || $t('select_location')]"
         ></search-bar-select>
       </v-flex>
       <v-flex class="mb-0 pb-0" xs12 sm12 md2>
         <search-bar-select
           :items="bedrooms"
           v-model="selectedBedroom"
-          label="Bedroom"
-          :rules="[(v) => !!v || 'You must select a bedroom type!']"
+  :label="$t('number_of_bedrooms')"
+          :rules="[(v) => !!v || $t('select_bedroom')]"
         ></search-bar-select>
       </v-flex>
       <v-flex class="mb-0 pb-0" xs12 sm12 md2>
         <search-bar-select
           :items="floors"
           v-model="selectedFloor"
-          label="Floor"
-          :rules="[(v) => !!v || 'You must select a floor!']"
+ :label="$t('floor_level')"
+          :rules="[(v) => !!v || $t('select_floor')]"
         ></search-bar-select>
       </v-flex>
       <v-flex class="mb-0 pb-0" xs12 sm12 md2>
         <search-bar-select
           :items="prices"
           v-model="selectedPrice"
-          label="Price"
-          :rules="[(v) => !!v || 'You must select a price!']"
+ :label="$t('price')"
+          :rules="[(v) => !!v || $t('select_price')]"
         ></search-bar-select>
       </v-flex>
       <v-flex class="mb-0 pb-0" xs12 sm12 md1>
@@ -45,7 +45,7 @@
               x-large
               color="yellow darken-2"
               v-on="on"
-            >MORE</v-btn>
+            >{{$t('more')}}</v-btn>
           </template>
 
           <v-list>
@@ -66,7 +66,7 @@
           color="yellow darken-2"
           v-on:click="onFindClick"
           :loading="isFindButtonLoading"
-        >FIND</v-btn>
+        >{{$t('find')}}</v-btn>
       </v-flex>
     </v-layout>
   </v-form>

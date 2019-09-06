@@ -25,7 +25,7 @@
             </v-carousel-item>-->
           </v-carousel>
           <v-card-actions>
-            <span>Item Code: {{listing.ItemCode}}</span>
+            <span>{{$t('item_code')}}: {{listing.ItemCode}}</span>
             <v-spacer></v-spacer>
             <v-rating v-model="rating" background-color="orange lighten-3" color="orange" small></v-rating>
           </v-card-actions>
@@ -36,34 +36,34 @@
           <v-simple-table>
             <tbody>
               <tr>
-                <td>Price</td>
+                <td>{{$t('price')}}</td>
                 <td>{{listing.price}} Birr</td>
               </tr>
               <tr>
-                <td>Floor Level</td>
+                <td>{{$t('floor_level')}}</td>
                 <td>{{listing.floor}}</td>
               </tr>
               <tr>
-                <td>Number of Bedrooms</td>
+                <td>{{$t('number_of_bedrooms')}}</td>
                 <td>{{listing.bedroom}}</td>
               </tr>
               <tr>
-                <td>Function</td>
+                <td>{{$t('function')}}</td>
                 <td>{{listing.function}}</td>
               </tr>
               <tr>
-                <td>Area</td>
+                <td>{{$t('area')}}</td>
                 <td>{{listing.area}}</td>
               </tr>
               <tr>
-                <td>Location</td>
+                <td>{{$t('location')}}</td>
                 <td>{{listing.location}}</td>
                 <td>
-                  <v-btn small color="info">See on Map</v-btn>
+                  <v-btn small color="info">{{$t('see_on_map')}}</v-btn>
                 </td>
               </tr>
               <tr>
-                <td>Contact Information</td>
+                <td>{{$t('contact_info')}}</td>
                 <td>{{listing.contact}}</td>
               </tr>
             </tbody>
@@ -75,11 +75,13 @@
           <v-simple-table>
             <tbody>
               <tr>
-                <td>Remarks</td>
-                <td>
-                  <span>{{listing.remarks}}</span>
-                  <!-- Add Expandable -->
-                </td>
+              <v-expansion-panels>
+    <v-expansion-panel>
+      <v-expansion-panel-header>{{$t('remarks')}}</v-expansion-panel-header>
+      <v-expansion-panel-content>{{listing.remarks}}</v-expansion-panel-content>
+    </v-expansion-panel>
+  </v-expansion-panels>
+               
               </tr>
             </tbody>
           </v-simple-table>

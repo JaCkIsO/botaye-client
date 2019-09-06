@@ -6,9 +6,9 @@
       </v-btn>
       <v-col class="yellow darken-2 py-4 text-center white--text" cols="12">
         <v-row justify="center" no-gutters>
-          <div class="font-italic px-3">Privacy Policy</div>
-          <strong>{{ new Date().getFullYear() }} - Botaye</strong>
-          <div class="font-italic px-3">Terms of Use</div>
+          <div class="font-italic px-3">{{$t('privacy_policy')}}</div>
+          <strong>{{ new Date().getFullYear() }} - {{$t('botaye_title')}}</strong>
+          <div class="font-italic px-3">{{$t('terms_of_use')}}</div>
         </v-row>
       </v-col>
     </v-row>

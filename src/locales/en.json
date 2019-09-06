@@ -1,3 +1,29 @@
 {
-  "message": "hello i18n !!"
+  "message": "hello i18n !!",
+  "privacy_policy" : "Privacy Policy",
+  "botaye_title" : "Botaye",
+  "terms_of_use" : "Terms of Use",
+  "botaye_caps" : "BOTAYE",
+  "finding_your_next_best_place" : "FINDING YOUR NEXT BEST PLACE!",
+  "about_us" : "About Us",
+  "faq" : "FAQ",
+  "we_will_take_care_of_it" : "We will take care of it.",
+  "renting_has_never_been_this_easy" : "Renting has never been this easy.",
+  "item_code" : "Item Code",
+  "price" : "Price",
+  "floor_level" : "Floor Level",
+  "number_of_bedrooms" : "Number of Bedrooms",
+  "function" : "Function",
+  "area" : "Area",
+  "location" : "Location",
+  
+  "see_on_map" : "See on Map",
+  "contact_info" : "Contact Information",
+  "remarks" : "Remarks",
+  "select_location" : "You must select a location!", 
+  "select_bedroom" : "You must select a bedroom type!", 
+  "select_floor" : "You must select a floor!", 
+  "select_price" : "You must select a price!",
+  "more" : "MORE",
+  "find" : "FIND" 
 }
