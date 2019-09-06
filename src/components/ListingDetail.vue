@@ -1,12 +1,31 @@
 <template>
-  <v-card class="ma-1 pa-2">
+  <v-card v-if="listing != undefined" color="#042539" height="440" class="ma-1 pa-2">
     <v-layout row wrap>
       <v-flex md4>
+        <v-btn
+          dark
+          class="px-2 ma-2"
+          v-on:click="$emit('listing-detail-back',1)"
+          color="yellow darken-2"
+        >
+          <v-icon>fa-arrow-left</v-icon>
+        </v-btn>
         <v-card class="mx-2">
-          <v-img height="240px" src="https://i.imgur.com/1VIj0U7.jpg"></v-img>
-
+          <v-carousel height="240">
+            <v-carousel-item v-for="(url, i) in listing.urls" :key="i">
+              <v-sheet color="green" height="130" tile>
+                <v-layout align-center fill-height justify-center>
+                  <v-img :src="'http://localhost:3000/api/containers/images/download/'+url"></v-img>
+                  <!-- <div>  {{ url }}</div> -->
+                </v-layout>
+              </v-sheet>
+            </v-carousel-item>
+            <!-- <v-carousel-item>
+              <v-img height="240px" src="https://i.imgur.com/1VIj0U7.jpg"></v-img>
+            </v-carousel-item>-->
+          </v-carousel>
           <v-card-actions>
-            <span>Item Code: SM0001</span>
+            <span>Item Code: {{listing.ItemCode}}</span>
             <v-spacer></v-spacer>
             <v-rating v-model="rating" background-color="orange lighten-3" color="orange" small></v-rating>
           </v-card-actions>
@@ -18,34 +37,34 @@
             <tbody>
               <tr>
                 <td>Price</td>
-                <td>4000 Birr</td>
+                <td>{{listing.price}} Birr</td>
               </tr>
               <tr>
                 <td>Floor Level</td>
-                <td>Ground Floor</td>
+                <td>{{listing.floor}}</td>
               </tr>
               <tr>
                 <td>Number of Bedrooms</td>
-                <td>2 Bedrooms</td>
+                <td>{{listing.bedroom}}</td>
               </tr>
               <tr>
                 <td>Function</td>
-                <td>Personal</td>
+                <td>{{listing.function}}</td>
               </tr>
               <tr>
                 <td>Area</td>
-                <td>72.5 m2</td>
+                <td>{{listing.area}}</td>
               </tr>
               <tr>
                 <td>Location</td>
-                <td>Summit</td>
+                <td>{{listing.location}}</td>
                 <td>
                   <v-btn small color="info">See on Map</v-btn>
                 </td>
               </tr>
               <tr>
                 <td>Contact Information</td>
-                <td>0901234567</td>
+                <td>{{listing.contact}}</td>
               </tr>
             </tbody>
           </v-simple-table>
@@ -58,7 +77,8 @@
               <tr>
                 <td>Remarks</td>
                 <td>
-                  <span>Lorem ipsum, e numquam nihil voluptatem voluptatum, dolor exercitationem necessitatibus ullam, eos sed minus!</span>
+                  <span>{{listing.remarks}}</span>
+                  <!-- Add Expandable -->
                 </td>
               </tr>
             </tbody>
@@ -79,49 +99,13 @@
 <script>
 export default {
   name: "ListingDetail",
+  props: {
+    listing: {
+      type: Object
+    }
+  },
   data: () => ({
-    desserts: [
-      {
-        name: "Frozen Yogurt",
-        calories: 159
-      },
-      {
-        name: "Ice cream sandwich",
-        calories: 237
-      },
-      {
-        name: "Eclair",
-        calories: 262
-      },
-      {
-        name: "Cupcake",
-        calories: 305
-      },
-      {
-        name: "Gingerbread",
-        calories: 356
-      },
-      {
-        name: "Jelly bean",
-        calories: 375
-      },
-      {
-        name: "Lollipop",
-        calories: 392
-      },
-      {
-        name: "Honeycomb",
-        calories: 408
-      },
-      {
-        name: "Donut",
-        calories: 452
-      },
-      {
-        name: "KitKat",
-        calories: 518
-      }
-    ]
+    rating: 5
   })
 };
 </script>

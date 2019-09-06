@@ -1,0 +1,8 @@
+export const SET_LOCATION = 'setLocation'
+export const SET_BEDROOM = 'setBedroom'
+export const SET_FLOOR = 'setFloor'
+export const SET_PRICE = 'setPrice'
+export const SET_FIND_LOADING = 'setFindLoading'
+export const SET_TABLE_DATA_LOADING = 'setTableDataLoading'
+export const SET_LISTINGS = 'setListings'
+export const SET_FILTERED_LISTINGS = 'setFilteredListings'

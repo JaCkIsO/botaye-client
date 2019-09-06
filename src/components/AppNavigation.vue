@@ -6,6 +6,7 @@
       <v-spacer></v-spacer>
       <div class="font-weight-black white--text">FINDING YOUR NEXT BEST PLACE!</div>
       <v-spacer></v-spacer>
+      <hello-i18n></hello-i18n>
       <v-btn class="mx-1" dark text rounded>About Us</v-btn>
       <v-btn class="mx-1" dark text rounded>FAQ</v-btn>
     </v-toolbar>
@@ -13,8 +14,12 @@
 </template>
 
 <script>
+import HelloI18n from "@/components/HelloI18n";
 export default {
-  name: "AppNavigation"
+  name: "AppNavigation",
+  components: {
+    HelloI18n
+  }
 };
 </script>
 

@@ -8,7 +8,7 @@
         <v-row justify="center" no-gutters>
           <div class="font-italic px-3">Privacy Policy</div>
           <strong>{{ new Date().getFullYear() }} - Botaye</strong>
-          <div class="font-italic px-3">Terms 0f Use</div>
+          <div class="font-italic px-3">Terms of Use</div>
         </v-row>
       </v-col>
     </v-row>

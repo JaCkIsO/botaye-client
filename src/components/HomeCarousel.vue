@@ -1,12 +1,26 @@
 <template>
-  <v-flex xs12 sm12 md10>
-    <v-carousel height="300" width="m">
-      <v-carousel-item v-for="(color, i) in colors" :key="color">
-        <v-sheet :color="color" height="100%" tile>
+  <v-flex class="my-0 py-0" xs12 sm12 md12>
+    <v-carousel class="height=430" height="430" hide-delimiters>
+      <v-carousel-item>
+        <v-img src="https://i.imgur.com/1VIj0U7.jpg">
           <v-layout align-center fill-height justify-center>
-            <div class="display-3">Slide {{ i + 1 }}</div>
+            <div class="display-3">FINDING YOUR NEXT BEST PLACE!</div>
           </v-layout>
-        </v-sheet>
+        </v-img>
+      </v-carousel-item>
+      <v-carousel-item>
+        <v-img src="https://i.imgur.com/1VIj0U7.jpg">
+          <v-layout align-center fill-height justify-center>
+            <div class="display-3">We will take care of it.</div>
+          </v-layout>
+        </v-img>
+      </v-carousel-item>
+      <v-carousel-item>
+        <v-img src="https://i.imgur.com/1VIj0U7.jpg">
+          <v-layout align-center fill-height justify-center>
+            <div class="display-3">Renting has never been this easy.</div>
+          </v-layout>
+        </v-img>
       </v-carousel-item>
     </v-carousel>
   </v-flex>
@@ -16,9 +30,7 @@
 export default {
   name: "HomeCarousel",
   data() {
-    return {
-      colors: ["primary", "secondary", "yellow darken-2", "red", "orange"]
-    };
+    return {};
   }
 };
 </script>
