@@ -1,14 +1,9 @@
 <template>
   <span>
-    <!-- <p>{{ $t('message') }}</p> -->
-    <v-select
-      solo
-      max-width="30"
-      dense
-      :items="langs"
-      v-model="$i18n.locale"
-      class="locale-changer"
-    ></v-select>
+    <v-radio-group row hide-details v-model="$i18n.locale">
+      <v-radio label="አማርኛ" :value="langs[0]"></v-radio>
+      <v-radio label="English" :value="langs[1]"></v-radio>
+    </v-radio-group>
   </span>
 </template>
 

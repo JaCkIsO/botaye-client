@@ -14,7 +14,7 @@
           <template v-slot:header>
             <v-toolbar class="mb-2" dense color="#042539" dark flat>
               <v-toolbar-title>
-                <v-btn color="yellow darken-2" v-on:click="handleClick">
+                <v-btn color="yellow darken-2" v-on:click="handleReturnClick">
                   <v-icon>fa-arrow-left</v-icon>
                 </v-btn>
               </v-toolbar-title>
@@ -27,7 +27,7 @@
                   elevation="24"
                   max-width="444"
                   class="mx-auto"
-                  v-on:click="$emit('search-result-select',item)"
+                  v-on:click="handleSelectClick(item)"
                 >
                   <v-carousel
                     :continuous="false"
@@ -37,12 +37,7 @@
                     height="120"
                   >
                     <v-carousel-item v-for="(url, i) in item.urls" :key="i">
-                      <v-sheet color="green" height="130" tile>
-                        <v-layout align-center fill-height justify-center>
-                          <v-img :src="'http://localhost:3000/api/containers/images/download/'+url"></v-img>
-                          <!-- <div>  {{ url }}</div> -->
-                        </v-layout>
-                      </v-sheet>
+                      <v-img height="120" :src="imageUrl+url"></v-img>
                     </v-carousel-item>
                   </v-carousel>
                   <v-card-text class="text-center pa-0 ma-1">
@@ -87,6 +82,7 @@ export default {
 
   data() {
     return {
+      imageUrl: "http://localhost:3000/api/containers/images/download/",
       length: 3,
       window: 0,
       autorun: true,
@@ -96,9 +92,12 @@ export default {
     };
   },
   methods: {
-    handleClick: function() {
-      this.$emit("search-result-back", 1);
+    handleReturnClick: function() {
+      store.dispatch("searchResultBackPressed");
       EventBus.$emit("clearSearchBar");
+    },
+    handleSelectClick: function(item) {
+      store.dispatch("searchItemSelected", { item: item });
     }
   },
   computed: {
@@ -115,6 +114,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-</style>

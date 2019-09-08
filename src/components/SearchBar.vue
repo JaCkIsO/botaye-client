@@ -13,7 +13,7 @@
         <search-bar-select
           :items="bedrooms"
           v-model="selectedBedroom"
-  :label="$t('number_of_bedrooms')"
+          :label="$t('number_of_bedrooms')"
           :rules="[(v) => !!v || $t('select_bedroom')]"
         ></search-bar-select>
       </v-flex>
@@ -21,7 +21,7 @@
         <search-bar-select
           :items="floors"
           v-model="selectedFloor"
- :label="$t('floor_level')"
+          :label="$t('floor_level')"
           :rules="[(v) => !!v || $t('select_floor')]"
         ></search-bar-select>
       </v-flex>
@@ -29,7 +29,7 @@
         <search-bar-select
           :items="prices"
           v-model="selectedPrice"
- :label="$t('price')"
+          :label="$t('price')"
           :rules="[(v) => !!v || $t('select_price')]"
         ></search-bar-select>
       </v-flex>
@@ -135,7 +135,6 @@ export default {
           selectedFloor: this.selectedFloor,
           selectedPrice: this.selectedPrice
         });
-        this.$emit("search-bar-find");
       }
     }
   },

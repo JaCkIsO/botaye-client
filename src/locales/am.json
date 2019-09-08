@@ -21,7 +21,7 @@
   "remarks" : "ተጨማሪ መረጃ",
   "select_location" : "መገኛ ቦታው መመረጥ ይኖርበታል！", 
   "select_bedroom" : "የመኝታ ክፍል ብዛት መመረጥ ይኖርበታል", 
-  "select_floor" : "ወለል ቁጥር መመረጥ ይኖርበታል！", 
+  "select_floor" : "የሚገኝበት ወለል መመረጥ ይኖርበታል！", 
   "select_price" : "የኪራይ ዋጋ መመረጥ ይኖርበታል！",
   "more" : "ተጨማሪ",
   "find" : "ፈልግ" 
