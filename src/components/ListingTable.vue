@@ -1,11 +1,25 @@
 <template>
-  <v-data-table :loading="isTableLoading" :headers="headers" :items="listings" class="elevation-1">
+  <v-data-table
+    :loading="isTableLoading"
+    :headers="headers.map(header => { newHeader = 
+      { text: '', value: '', sortable: true }
+                    newHeader.value = header.value;
+                    newHeader.text = $t(header.text);
+                    newHeader.sortable = header.sortable;
+                    return newHeader;})"
+    :items="listings.map( listing => {
+      listing.bedroom = $t(listing.bedroom);
+      return listing;
+    })"
+    class="elevation-1"
+  >
     <template v-slot:top>
       <v-toolbar flat color="white">
         <v-toolbar-title>My Listings</v-toolbar-title>
         <v-divider class="mx-4" inset vertical></v-divider>
+
         <div class="flex-grow-1"></div>
-        <v-dialog v-model="dialog" max-width="800px">
+        <v-dialog persistent v-model="dialog" max-width="800px">
           <template v-slot:activator="{ on }">
             <v-btn color="primary" dark class="mb-2" v-on="on">New Listing</v-btn>
           </template>
@@ -18,31 +32,68 @@
               <v-container>
                 <v-row>
                   <v-col cols="12" sm="6" md="3">
-                    <v-text-field v-model="listing.ItemCode" label="ITEM CODE"></v-text-field>
+                    <v-text-field v-model="listing.ItemCode" :label="$t('item_code')"></v-text-field>
                   </v-col>
                   <v-col cols="12" sm="6" md="3">
-                    <v-select :items="locations" v-model="listing.location" label="Location"></v-select>
+                    <v-select
+                      :items="locations.map(location => {
+                    newLocation = { text : '', value : ''};
+                    newLocation.value = location.value;
+                    newLocation.text = $t(location.text);
+                    return newLocation;})"
+                      v-model="listing.location"
+                      :label="$t('location')"
+                    ></v-select>
                   </v-col>
                   <v-col cols="12" sm="6" md="3">
-                    <v-select :items="bedrooms" v-model="listing.bedroom" label="Bedrooms"></v-select>
+                    <v-select
+                      :items="bedrooms.map(bedroom => {
+                    newBedroom = { text : '', value : ''};
+                    newBedroom.value = bedroom.value;
+                    newBedroom.text = $t(bedroom.text);
+                    return newBedroom;})"
+                      v-model="listing.bedroom"
+                      :label="$t('number_of_bedrooms')"
+                    ></v-select>
                   </v-col>
                   <v-col cols="12" sm="6" md="3">
-                    <v-select :items="floors" v-model="listing.floor" label="Floor"></v-select>
+                    <v-select
+                      :items="floors.map(floor => {
+                    newFloor = { text : '', value : ''};
+                    newFloor.value = floor.value;
+                    newFloor.text = $t(floor.text);
+                    return newFloor;})"
+                      v-model="listing.floor"
+                      :label="$t('floor_level')"
+                    ></v-select>
                   </v-col>
                   <v-col cols="12" sm="6" md="3">
-                    <v-text-field v-model="listing.price" label="Price"></v-text-field>
+                    <v-text-field v-model="listing.price" :label="$t('price')"></v-text-field>
                   </v-col>
                   <v-col cols="12" sm="6" md="3">
-                    <v-text-field v-model="listing.area" label="Area"></v-text-field>
+                    <v-text-field v-model="listing.area" :label="$t('area')"></v-text-field>
                   </v-col>
                   <v-col cols="12" sm="6" md="3">
-                    <v-text-field v-model="listing.function" label="Function"></v-text-field>
+                    <v-select
+                      :items="functions.map(func => {
+                    newFunc = { text : '', value : ''};
+                    newFunc.value = func.value;
+                    newFunc.text = $t(func.text);
+                    return newFunc;})"
+                      v-model="listing.function"
+                      :label="$t('function')"
+                    ></v-select>
                   </v-col>
                   <v-col cols="12" sm="6" md="3">
-                    <v-text-field v-model="listing.contact" label="Contact"></v-text-field>
+                    <v-text-field v-model="listing.contact" :label="$t('contact_info')"></v-text-field>
                   </v-col>
                   <v-col cols="12" md="6">
-                    <v-textarea outlined name="input-7-4" label="Remarks" v-model="listing.remarks"></v-textarea>
+                    <v-textarea
+                      outlined
+                      name="input-7-4"
+                      :label="$t('remarks')"
+                      v-model="listing.remarks"
+                    ></v-textarea>
                   </v-col>
                   <v-col cols="12" sm="6" md="6">
                     <vue-upload-multiple-image
@@ -52,12 +103,12 @@
                       :data-images="images"
                       idUpload="myIdUpload"
                       editUpload="myIdEdit"
-                      dragText="Drag images (multiple)"
-                      browseText="(or) Select"
-                      primaryText="Default"
-                      markIsPrimaryText="Set as default"
-                      popupText="This image will be displayed as default"
-                      dropText="Drop your files here ..."
+                      :dragText="$t('drag_text')"
+                      :browseText="$t('browse_text')"
+                      :primaryText="$t('primary_text')"
+                      :markIsPrimaryText="$t('mark_is_primary_text')"
+                      :popupText="$t('popup_text')"
+                      :dropText="$t('drop_text')"
                       accept="image/gif, image/jpeg, image/png, image/bmp, image/jpg"
                     ></vue-upload-multiple-image>
                   </v-col>
@@ -67,8 +118,8 @@
 
             <v-card-actions>
               <div class="flex-grow-1"></div>
-              <v-btn color="blue darken-1" text @click="close">Cancel</v-btn>
-              <v-btn color="blue darken-1" text @click="save">Save</v-btn>
+              <v-btn dark color="red darken-2"  @click="close">{{$t('cancel')}}</v-btn>
+              <v-btn dark color="green darken-2" @click="save">{{$t('save')}}</v-btn>
             </v-card-actions>
           </v-card>
         </v-dialog>
@@ -88,6 +139,12 @@
 import VueUploadMultipleImage from "vue-upload-multiple-image";
 import store from "@/store";
 import { ListingService, UploadService } from "@/api-common";
+import {
+  locations,
+  bedrooms,
+  floors,
+  functions
+} from "../helper/optionLists.js";
 export default {
   name: "ListingTable",
   components: {
@@ -95,34 +152,18 @@ export default {
   },
   data: () => ({
     images: [],
-    locations: [
-      "Summit",
-      "Yeka Abado",
-      "Lideta",
-      "Gotera",
-      "Gerji",
-      "Gerji Mebrat-Hail",
-      "Mickelyland",
-      "Gelan",
-      "Tulu Dimtu"
-    ],
-    bedrooms: ["Studio", "One Bedroom", "Two Bedroom", "Three Bedroom", "Shop"],
-    floors: [
-      "Ground Floor",
-      "First Floor",
-      "Second Floor",
-      "Third Floor",
-      "Fourth Floor",
-      "Above Fourth Floor"
-    ],
+    locations: locations,
+    bedrooms: bedrooms,
+    floors: floors,
+    functions: functions,
     dialog: false,
     headers: [
       { text: "ID", value: "id", sortable: true },
-      { text: "Listing Code", value: "ItemCode", sortable: false },
-      { text: "Location", value: "location", sortable: false },
-      { text: "Bedroom", value: "bedroom", sortable: false },
-      { text: "Price", value: "price", sortable: false },
-      { text: "Contact", value: "contact", sortable: false },
+      { text: "item_code", value: "ItemCode", sortable: false },
+      { text: "location", value: "location", sortable: false },
+      { text: "number_of_bedrooms", value: "bedroom", sortable: false },
+      { text: "price", value: "price", sortable: false },
+      { text: "contact_info", value: "contact", sortable: false },
       { text: "Actions", value: "action", sortable: false }
     ],
     editedIndex: -1,
@@ -193,14 +234,14 @@ export default {
 
     save() {
       ListingService.create(this.listing)
-        .then(function(response) {
-          console.log(response.data);
+        .then(response => {
+          //console.log(response.data);
           (this.listing.id = 0),
             (this.listing.ItemCode = ""),
             (this.listing.price = 0),
             (this.listing.floor = ""),
             (this.listing.bedroom = ""),
-            (this.listing.function = "Personal"),
+            (this.listing.function = ""),
             (this.listing.area = ""),
             (this.listing.location = ""),
             (this.listing.contact = ""),
@@ -228,8 +269,10 @@ export default {
       //   console.log(response)
       // })
       UploadService.upload(formData)
-        .then(function(response) {
+        .then(response => {
+          console.log("Object:", response.data);
           console.log("file", response.data.result.files.file[0].name);
+          console.log("Listing : ", this.listing);
 
           this.listing.urls.push(response.data.result.files.file[0].name);
           //   response.data.result.files.file.forEach(function(element) {

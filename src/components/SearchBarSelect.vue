@@ -8,6 +8,7 @@
     item-color="yellow darken-2"
     color="yellow"
     dark
+    return-object
     required
     outlined
   ></v-select>

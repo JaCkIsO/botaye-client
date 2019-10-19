@@ -130,23 +130,23 @@ export default new Vuex.Store({
     findPressed({
       commit
     }, payload) {
-      commit(SET_LOCATION, payload.selectedLocation);
-      commit(SET_BEDROOM, payload.selectedBedroom);
-      commit(SET_FLOOR, payload.selectedFloor);
-      commit(SET_PRICE, payload.selectedPrice);
+     
+      commit(SET_LOCATION, payload.filters.selectedLocation);
+      commit(SET_BEDROOM, payload.filters.selectedBedroom);
+      commit(SET_FLOOR, payload.filters.selectedFloor);
+      commit(SET_PRICE, payload.filters.selectedPrice);
       commit(SET_FIND_LOADING, true);
       ListingService.getAll().then(function (response) {
-          var filteredListings = response.data.filter(listing => {
-            return filterAll(payload.selectedLocation, payload.selectedBedroom, payload.selectedFloor, payload.selectedPrice, listing);
-          });
-          commit(SET_FILTERED_LISTINGS, filteredListings);
-          console.log(filteredListings);
-          commit(SET_FIND_LOADING, false);
-          commit(SET_CAROUSEL_SHOWN, false);
-          commit(SET_LISTING_SHOWN, false);
-          commit(SET_SEARCH_RESULT_SHOWN, true);
+        var filteredListings = response.data.filter(listing => {
+          return filterAll(payload.filters.selectedLocation, payload.filters.selectedBedroom, payload.filters.selectedFloor, payload.filters.selectedPrice, listing);
+        });
+        commit(SET_FILTERED_LISTINGS, filteredListings);
+        commit(SET_FIND_LOADING, false);
+        commit(SET_CAROUSEL_SHOWN, false);
+        commit(SET_LISTING_SHOWN, false);
+        commit(SET_SEARCH_RESULT_SHOWN, true);
 
-        })
+      })
         .catch(function (error) {
           // handle error
           console.log(error);
@@ -178,12 +178,12 @@ export default new Vuex.Store({
     }) {
       commit(SET_TABLE_DATA_LOADING, true);
       ListingService.getAll().then(function (response) {
-          var listings = response.data;
-          commit(SET_LISTINGS, listings);
-          console.log(listings);
-          commit(SET_TABLE_DATA_LOADING, false);
+        var listings = response.data;
+        commit(SET_LISTINGS, listings);
+        // console.log(listings);
+        commit(SET_TABLE_DATA_LOADING, false);
 
-        })
+      })
         .catch(function (error) {
           // handle error
           console.log(error);

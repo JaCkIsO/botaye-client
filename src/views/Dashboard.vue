@@ -5,6 +5,7 @@
         <navigation-drawer></navigation-drawer>
       </v-col>
       <v-col md="10">
+        
         <dashboard-metrics></dashboard-metrics>
         <listing-table></listing-table>
       </v-col>

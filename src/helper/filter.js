@@ -1,30 +1,34 @@
-function filterForLocation(value, listing) {
-    if (value == "Any") {
+import {
+    ANY_OPTION
+  } from '@/helper/optionLists'
+
+function filterForLocation(selectedFilter, listing) {
+    if (selectedFilter.value == ANY_OPTION) {
         return true;
     }
-    return listing.location == value;
+    return listing.location == selectedFilter.value;
 }
 
-function filterForBedroom(value, listing) {
-    if (value == "Any") {
+function filterForBedroom(selectedFilter, listing) {
+    if (selectedFilter.value == ANY_OPTION) {
         return true;
     }
-    return listing.bedroom == value;
+    return listing.bedroom == selectedFilter.value;
 }
 
-function filterForFloor(value, listing) {
-    if (value == "Any") {
+function filterForFloor(selectedFilter, listing) {
+    if (selectedFilter.value == ANY_OPTION) {
         return true;
     }
-    return listing.floor == value;
+    return listing.floor == selectedFilter.value;
 }
 
-function filterForPrice(value, listing) {
-    if (value == "Any") {
+function filterForPrice(selectedFilter, listing) {
+    if (selectedFilter.value == ANY_OPTION) {
         return true;
     }
-    return true;
-    // return listing.price == value;
+    return listing.price <= selectedFilter.maxValue && listing.price >= selectedFilter.minValue 
+    
 }
 
 function filterAll(location, bedroom, floor, price, listing) {
@@ -37,9 +41,5 @@ function filterAll(location, bedroom, floor, price, listing) {
 }
 
 export {
-    filterForLocation,
-    filterForBedroom,
-    filterForFloor,
-    filterForPrice,
     filterAll
 };

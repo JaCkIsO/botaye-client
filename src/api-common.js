@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const API = axios.create({
-    baseURL: `http://localhost:3000/api/`,
+    baseURL: `https://botaye.herokuapp.com/api/`,
 })
 
 export const ListingService = {
@@ -21,6 +21,7 @@ export const ListingService = {
             bedroom: Listing.bedroom,
             area: Listing.area,
             location: Listing.location,
+            function: Listing.function,
             contact: Listing.contact,
             remarks: Listing.remarks,
             urls: Listing.urls

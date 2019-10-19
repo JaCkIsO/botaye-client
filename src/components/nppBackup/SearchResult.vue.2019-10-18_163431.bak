@@ -98,7 +98,7 @@ export default {
 
   data() {
     return {
-      imageUrl: "https://botaye.herokuapp.com/api/containers/images/download/",
+      imageUrl: "http://localhost:3000/api/containers/images/download/",
       length: 3,
       window: 0,
       autorun: true,

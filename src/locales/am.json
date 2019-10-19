@@ -24,6 +24,45 @@
   "select_floor" : "የሚገኝበት ወለል መመረጥ ይኖርበታል！", 
   "select_price" : "የኪራይ ዋጋ መመረጥ ይኖርበታል！",
   "more" : "ተጨማሪ",
-  "find" : "ፈልግ" 
+  "find" : "ፈልግ",
+  "birr" : "ብር",
+  "rented" : "ተከራይቷል",
+  "ad_space" : "የማስታወቂያ ቦታ",
+  "logout" : "ውጣ",
+  "cancel" : "Cancel",
+  "save" : "Save",
 
+  "drag_text": "ምስሎችን ጎትተው ያስገቡ(በብዛት)",
+  "browse_text": "(ወይም) ይምረጡ",
+  "primary_text": "ዋና",
+  "mark_is_primary_text": "ዋና ያድርጉ",
+  "popup_text": "ይህ ምስል ዋና ይሆናል",
+  "drop_text": "Drop your files here ...",
+
+  "any" : "ማንኛውም", 
+
+  "bedroom_type_1" : "ስቱዲዮ",
+  "bedroom_type_2" : "ባለአንድ መኝታ ክፍል",
+  "bedroom_type_3" : "ባለሁለት መኝታ ክፍል",
+  "bedroom_type_4": "ባለሶስት መኝታ ክፍል",
+  "bedroom_type_5": "ሱቅ",
+
+  "floor_type_1" : "ምድር ላይ",
+  "floor_type_2": "አንደኛ ፎቅ",
+  "floor_type_3": "ሁለተኛ ፎቅ",
+  "floor_type_4": "ሶስተኛ ፎቅ",
+  "floor_type_5": "አራተኛ ፎቅ",
+  "floor_type_6": "ከአራተኛ ፎቅ በላይ",
+
+  "price_type_1" : "< ብር3,000",
+  "price_type_2":"ብር3,001 - ብር5,000",
+  "price_type_3":"ብር5,001 - ብር7,000",
+  "price_type_4" : "ብር7,001 - ብር10,000",
+  "price_type_5" : "ብር10,001 - ብር15,000",
+  "price_type_6" : "> ብር15,000",
+     
+  "personal" : "ለመኖሪያ",
+  "commercial" : "ለንግድ"
+
+  
 }
