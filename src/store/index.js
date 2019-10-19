@@ -149,7 +149,7 @@ export default new Vuex.Store({
       })
         .catch(function (error) {
           // handle error
-          console.log(error);
+          // console.log(error);
         });
 
     },

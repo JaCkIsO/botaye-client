@@ -13,7 +13,6 @@ export const ListingService = {
         return API.get(`Listings/${id}`);
     },
     create(Listing) {
-        console.log(Listing);
         return API.post("Listings", {
             ItemCode: Listing.ItemCode,
             price: Listing.price,
