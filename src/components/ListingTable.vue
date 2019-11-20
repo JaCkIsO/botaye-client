@@ -118,7 +118,7 @@
 
             <v-card-actions>
               <div class="flex-grow-1"></div>
-              <v-btn dark color="red darken-2"  @click="close">{{$t('cancel')}}</v-btn>
+              <v-btn dark color="red darken-2" @click="close">{{$t('cancel')}}</v-btn>
               <v-btn dark color="green darken-2" @click="save">{{$t('save')}}</v-btn>
             </v-card-actions>
           </v-card>
@@ -275,6 +275,16 @@ export default {
           console.log("Listing : ", this.listing);
 
           this.listing.urls.push(response.data.result.files.file[0].name);
+          this.$snotify.success(
+            "Image uploaded successfully!",
+            "Image Uploaded",
+            {
+              timeout: 2000,
+              showProgressBar: false,
+              closeOnClick: false,
+              pauseOnHover: true
+            }
+          );
           //   response.data.result.files.file.forEach(function(element) {
           //   });
         })

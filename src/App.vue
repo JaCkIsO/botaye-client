@@ -2,6 +2,7 @@
   <v-app>
     <app-navigation></app-navigation>
     <v-content transition="slide-x-transition">
+      <vue-snotify></vue-snotify>
       <router-view></router-view>
     </v-content>
     <app-footer></app-footer>

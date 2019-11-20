@@ -3,6 +3,10 @@ import App from './App.vue'
 import vuetify from './plugins/vuetify';
 import router from './router'
 import * as VueGoogleMaps from 'vue2-google-maps';
+import Snotify, {
+  SnotifyPosition
+} from 'vue-snotify';
+import 'vue-snotify/styles/material.css';
 import store from './store/index'
 import i18n from './i18n'
 
@@ -13,6 +17,14 @@ Vue.use(VueGoogleMaps, {
     libraries: "places" // necessary for places input
   }
 });
+const options = {
+  toast: {
+    position: SnotifyPosition.rightTop,
+    showProgressBar: false,
+  }
+}
+
+Vue.use(Snotify, options)
 
 new Vue({
   vuetify,
